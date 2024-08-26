@@ -1,0 +1,31 @@
+<div class="container mt-4">
+  <h2 class="text-center">To-Do List</h2>
+
+  <!-- Formulario para agregar o editar tareas -->
+  <app-task-form [task]="editingTask" (taskSaved)="onTaskSaved($event)"></app-task-form>
+
+  <!-- Filtros de estado de tareas -->
+  <div class="mt-3 d-flex justify-content-between align-items-center">
+    <div>
+      <button class="btn btn-secondary mx-2" (click)="filterTasks('all')">Todas</button>
+      <button class="btn btn-secondary mx-2" (click)="filterTasks('completed')">Completadas</button>
+      <button class="btn btn-secondary mx-2" (click)="filterTasks('pending')">Pendientes</button>
+    </div>
+    <div>
+      <p class="mb-0">Total: {{ tasks.length }} tareas</p>
+    </div>
+  </div>
+
+  <!-- Lista de tareas -->
+  <ul class="list-group mt-3">
+    <li
+      *ngFor="let task of filteredTasks"
+      class="list-group-item d-flex justify-content-between align-items-center"
+    >
+      <app-task-item
+        [task]="task"
+        (taskEdited)="onEditTask($event)"
+        (taskDeleted)="onDeleteTask($event)"></app-task-item>
+    </li>
+  </ul>
+</div>

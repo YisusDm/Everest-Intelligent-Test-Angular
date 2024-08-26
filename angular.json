@@ -3,19 +3,9 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Everest-Intelligent-Test-Angular": {
+    "todo-app": {
       "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "standalone": false
-        },
-        "@schematics/angular:directive": {
-          "standalone": false
-        },
-        "@schematics/angular:pipe": {
-          "standalone": false
-        }
-      },
+      "schematics": {},
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -23,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/everest-intelligent-test-angular",
+            "outputPath": "dist/todo-app",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -37,7 +27,8 @@
               }
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
             "scripts": []
           },
@@ -69,10 +60,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "Everest-Intelligent-Test-Angular:build:production"
+              "buildTarget": "todo-app:build:production"
             },
             "development": {
-              "buildTarget": "Everest-Intelligent-Test-Angular:build:development"
+              "buildTarget": "todo-app:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -102,5 +93,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "96e79023-388d-4554-a487-587badce6e50"
   }
 }
