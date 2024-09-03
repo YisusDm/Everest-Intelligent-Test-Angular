@@ -17,7 +17,7 @@ export class TaskItemComponent {
     this.taskEdited.emit(task);
   }
 
-  deleteTask(id: number): void { // Asegurarse de que id sea de tipo number
+  deleteTask(id: number | null): void { // Asegurarse de que id sea de tipo number
     if (id === null || id === undefined) return; // Verificar id correctamente
     this.taskDeleted.emit(id);
   }
